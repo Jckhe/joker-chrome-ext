@@ -13,7 +13,7 @@ $(document).ready(function() {
         setTimeout(() => {
             $('.setup').attr('id', '');
         }, 550);
-        fetch(`https://v2.jokeapi.dev/joke/${urlEnding.join()}`)
+        fetch(`https://v2.jokeapi.dev/joke/${urlEnding.join()}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit`)
         .then((res) => res.json())
         .then((res) => {
             if (res.setup === undefined || res.delivery === undefined) {
