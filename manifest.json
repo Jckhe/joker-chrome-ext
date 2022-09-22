@@ -4,15 +4,23 @@
     "version": "1.0",
     "manifest_version": 3,
     "author": "Jackie He and Vardan Vanyan",
-    "permissions": ["storage"],
+    "permissions": ["storage","activeTab", "tabs", "<all_urls>"],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+      ],
     "content_scripts": [
         {
             "matches": [
                 "https://*.google.com/*"
               ],
-         "js": ["jquery-3.6.1.min.js", "script.js"]
+         "js": ["jquery-3.6.1.min.js", "script.js", "background.js"]
         }
      ],
+     "web_accessible_resources": [
+        "/sounds/bad-joke-drums.mp3"
+    ],
+
     "action": {
         "default_popup": "index.html",
         "default_title": "Joker"

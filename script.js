@@ -1,11 +1,19 @@
+import sound from '/sounds/bad-joke-drums.mp3'
 
 $(document).ready(function() {
+    //
+    const audio = new Audio (sound);
     let joke = document.querySelector(".setup")
     let result = document.querySelector(".result")
     let setup;
     let delivery;
     let urlEnding = ["Programming"]
     function fetchJoke() {
+        //animation
+        $('.setup').attr('id', 'new');
+        setTimeout(() => {
+            $('.setup').attr('id', '');
+        }, 550);
         fetch(`https://v2.jokeapi.dev/joke/${urlEnding.join()}`)
         .then((res) => res.json())
         .then((res) => {
@@ -20,12 +28,24 @@ $(document).ready(function() {
             
         })
     }
+    // function fix (audio) {
+    //     const thePromis = audio.play();
+    //     if(thePromis != undefined) {
+    //         thePromis.then(function(_){
+    //             item.pause();
+    //             item.currentTime = 0;
+    //         })
+    //     }
+    // }
     fetchJoke();
     $(".deliver").on("click", () => {
+        $('.result').attr('id', 'delivered');
         result.innerHTML = delivery;
+        audio.play();
     })
     $(".refreshJoke").on("click", () => {
         result.innerHTML = '';
+        $('.result').attr('id', 'undelivered');
         fetchJoke();
     })
     $('input.optional').change(function () {
