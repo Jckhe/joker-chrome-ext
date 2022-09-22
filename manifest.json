@@ -1,0 +1,20 @@
+{
+    "name": "Bad Jokes 101",
+    "description": "Build an Extension!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "author": "Jackie He and Vardan Vanyan",
+    "permissions": ["storage"],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.google.com/*"
+              ],
+         "js": ["jquery-3.6.1.min.js", "script.js"]
+        }
+     ],
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Joker"
+      }
+}
