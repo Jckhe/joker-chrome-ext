@@ -1,25 +1,29 @@
 {
-    "name": "Bad Jokes 101",
-    "description": "Build an Extension!",
+    "name": "Joker",
+    "description": "Literal Joke. (Not Literally)",
     "version": "1.0",
     "manifest_version": 3,
     "author": "Jackie He and Vardan Vanyan",
-    "permissions": ["storage","activeTab", "tabs", "<all_urls>"],
+    "permissions": ["storage","activeTab", "tabs", "<all_urls>", "scripting"],
     "host_permissions": [
         "http://*/*",
         "https://*/*"
       ],
     "content_scripts": [
         {
-            "matches": [
-                "https://*.google.com/*"
-              ],
-         "js": ["jquery-3.6.1.min.js", "script.js", "background.js"]
+          "matches": ["<all_urls>"],
+         "js": ["jquery-3.6.1.min.js", "script.js", "script2.js"]
         }
      ],
      "web_accessible_resources": [
-        "/sounds/bad-joke-drums.mp3"
+       {
+        "resources":  ["/sounds/bad-joke-drums.mp3","test.js"],
+        "matches": ["<all_urls>"]
+       }
     ],
+    "icons": { "16": "icon.png",
+           "48": "icon.png",
+          "128": "icon.png" },
 
     "action": {
         "default_popup": "index.html",

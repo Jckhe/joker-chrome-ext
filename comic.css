@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'ahawow';
+    src: url('./assets/ahawowfont2.woff2') format('woff2'),
+         url('./assets/ahawowfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
